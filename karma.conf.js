@@ -35,7 +35,9 @@ module.exports = function (config) {
     },
     reporters: ['progress', 'junit'],
     junitReporter: {
-      outputDir: 'reports',
+      outputDir: 'test-results',
+      outputFile: 'junit-report.xml',
+      useBrowserName: false
     },
     port: 9876,
     colors: true,
