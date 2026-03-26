@@ -82,7 +82,9 @@ jobs:
           
         - name: Publish test results
           if: ${{ steps.detect.outputs.type == 'java' }}  
-          uses: actions/upload-test-results@v2
+          uses: dorny/test-reporter@v1
           with:
-            junit_files: '**/build/test-results/test/*.xml'
+            name: JUnit Tests
+            path: '**/build/test-results/test/*.xml'
+            reporter: java-junit
 
