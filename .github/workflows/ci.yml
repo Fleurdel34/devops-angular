@@ -13,12 +13,15 @@ jobs:
         runs-on: ubuntu-latest 
         steps:
 
+        - name: Checkout repository
+          uses: actions/checkout@v4  
+
         - name: Check Angular ou JAVA project
           id: detect
           run: |
-            if [ -f "package.json" ]; then
+            if [ -f "package.json" ] || [ -f "*/package.json" ]; then
               echo "type=angular" >> $GITHUB_OUTPUT
-            elif [ -f "build.gradle" ]; then
+            elif [ -f "build.gradle" ] || [ -f "*/build.gradle" ]; then
               echo "type=java" >> $GITHUB_OUTPUT
             else
               echo "No Angular ou Java project detected."
