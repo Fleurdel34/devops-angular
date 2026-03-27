@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/Fleurdel34/devops-angular/compare/v1.0.1...v1.0.2) (2026-03-27)
+
+
+### Bug Fixes
+
+* update job test ([768c174](https://github.com/Fleurdel34/devops-angular/commit/768c174be951857298a06c961ebf56505693d420))
+
 ## [1.0.1](https://github.com/Fleurdel34/devops-angular/compare/v1.0.0...v1.0.1) (2026-03-27)
 
 
