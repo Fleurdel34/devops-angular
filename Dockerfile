@@ -4,6 +4,7 @@ FROM node:20-slim AS build
 WORKDIR /app
 
 COPY package.json package-lock.json* ./
+RUN npm install --package-lock-only
 RUN --mount=type=cache,target=/root/.npm npm ci
 
 COPY . .
