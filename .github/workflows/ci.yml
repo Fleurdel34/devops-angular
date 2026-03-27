@@ -140,7 +140,7 @@ jobs:
               labels: ${{ steps.meta.outputs.labels }}
 
       release:
-        name: Create Release
+        name: Create Release Angular
         needs: [test, build]
         runs-on: ubuntu-latest 
 
@@ -168,7 +168,7 @@ jobs:
           - name: Release with Semantic Release      
             env:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            run: npx semantic-release > release.json
+            run: npx semantic-release
 
           - name: Set up QEMU
             uses: docker/setup-qemu-action@v4
@@ -179,7 +179,7 @@ jobs:
           - name: Build Docker image tag version
             id: version  
             run: | 
-              VERSION=$(grep '"version"' release.json | sed 's/[^0-9.]//g')
+              VERSION=$(node -p "require('./package.json').version")
               echo "version=$VERSION" >> "$GITHUB_OUTPUT"
 
           - name: Extract Docker metadata
