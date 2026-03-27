@@ -47,7 +47,9 @@ jobs:
 
         - name: Install dependencies
           if: ${{ steps.detect.outputs.type == 'angular' }}
-          run: npm ci 
+          run: |
+            npm install --package-lock-only
+            npm ci 
         
         - name: Build
           if: ${{ steps.detect.outputs.type == 'angular' }}
